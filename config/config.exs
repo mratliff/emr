@@ -9,9 +9,7 @@ import Config
 
 config :emr, Emr.Repo,
   migration_timestamps: [
-    type: :utc_datetime,
-    inserted_at: :created_at,
-    updated_at: :changed_at
+    type: :utc_datetime
   ]
 
 config :emr,

@@ -64,6 +64,13 @@ defmodule EmrWeb.Router do
   scope "/", EmrWeb do
     pipe_through [:browser, :require_authenticated_user]
 
+    live "/visits", VisitLive.Index, :index
+    live "/visits/new", VisitLive.Index, :new
+    live "/visits/:id/edit", VisitLive.Index, :edit
+
+    live "/visits/:id", VisitLive.Show, :show
+    live "/visits/:id/show/edit", VisitLive.Show, :edit
+
     live_session :require_authenticated_user,
       on_mount: [{EmrWeb.UserAuth, :ensure_authenticated}] do
       live "/users/settings", UserSettingsLive, :edit
