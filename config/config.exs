@@ -7,6 +7,13 @@
 # General application configuration
 import Config
 
+config :emr, Emr.Repo,
+  migration_timestamps: [
+    type: :utc_datetime,
+    inserted_at: :created_at,
+    updated_at: :changed_at
+  ]
+
 config :emr,
   ecto_repos: [Emr.Repo],
   generators: [timestamp_type: :utc_datetime]
